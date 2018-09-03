@@ -62,13 +62,13 @@ train_datagen = ImageDataGenerator(
 test_datagen = ImageDataGenerator(rescale=1./255)
 
 training_set = train_datagen.flow_from_directory(
-        'G:\\Deep_Learning_A_Z\\Volume 1 - Supervised Deep Learning\\Part 2 - Convolutional Neural Networks (CNN)\\Section 8 - Building a CNN\\Convolutional_Neural_Networks\\dataset\\training_set',
+        'G:\\dataset\\training_set',
         target_size=(64, 64),
         batch_size=32,
         class_mode='binary')
 
 test_set = test_datagen.flow_from_directory(
-        'G:\\Deep_Learning_A_Z\\Volume 1 - Supervised Deep Learning\\Part 2 - Convolutional Neural Networks (CNN)\\Section 8 - Building a CNN\\Convolutional_Neural_Networks\\dataset\\test_set',
+        'G:\\dataset\\test_set',
         target_size=(64, 64),
         batch_size=32,
         class_mode='binary')
@@ -97,7 +97,7 @@ model.load_weights('G:\\CNN.h5')
 #for making predictions on a single image
 import numpy as np
 from keras.preprocessing import image
-img = image.load_img(path='G:\\Deep_Learning_A_Z\\Volume 1 - Supervised Deep Learning\\Part 2 - Convolutional Neural Networks (CNN)\\Section 8 - Building a CNN\\Convolutional_Neural_Networks\\dataset\\single_prediction\\cat.jpg', target_size=(64,64))
+img = image.load_img(path='G:\\dataset\\single_prediction\\cat.jpg', target_size=(64,64))
 img = image.img_to_array(img)
 img = np.expand_dims(img, axis=0)
 result = model.predict(img)
